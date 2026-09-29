@@ -28,6 +28,10 @@ function App() {
       ? zdjecia
       : zdjecia.filter(z => z.category === aktywnaKategoria)
 
+  function usunZdjecie(id: number) {
+    setZdjecia(zdjecia.filter(z => z.id !== id))
+  }
+
   return (
     <>
       <Navbar />
@@ -69,7 +73,7 @@ function App() {
             Nie znaleziono zdjęć w tej kategorii.
           </div>
         )}
-        <Gallery zdjecia={widoczne} />
+        <Gallery zdjecia={widoczne} onUsun={usunZdjecie} />
       </main>
       <Footer />
       <AddPhotoModal />

@@ -5,15 +5,16 @@ import PhotoModal from './PhotoModal.tsx'
 
 interface GalleryProps {
   zdjecia: Photo[]
+  onUsun: (id: number) => void
 }
 
-function Gallery({ zdjecia }: GalleryProps) {
+function Gallery({ zdjecia, onUsun }: GalleryProps) {
   return (
     <div id="galeria" className="row g-4">
       {zdjecia.map(zdjecie => (
         <Fragment key={zdjecie.id}>
           <div className="col-12 col-md-6 col-lg-4">
-            <PhotoCard {...zdjecie} />
+            <PhotoCard {...zdjecie} onUsun={() => onUsun(zdjecie.id)} />
           </div>
           <PhotoModal {...zdjecie} />
         </Fragment>
