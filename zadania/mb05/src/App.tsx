@@ -1,5 +1,5 @@
-import { useState } from "react";
 import Navbar from "./components/Navbar.tsx";
+import CategoryBar from "./components/CategoryBar.tsx";
 import "./App.css";
 
 function App() {
@@ -18,8 +18,7 @@ function App() {
           </div>
           <div className="col-12 col-lg-4">
             <div
-              className="d-flex flex-wrap gap-2 justify-content-
-lg-end"
+              className="d-flex flex-wrap gap-2 justify-content-lg-end"
             >
               <button
                 type="button"
@@ -41,6 +40,9 @@ lg-end"
           </div>
         </div>
       </header>
+      <main className="container">
+        <CategoryBar />
+      </main>
     </>
   );
 }
