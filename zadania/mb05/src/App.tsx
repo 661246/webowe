@@ -32,6 +32,11 @@ function App() {
     setZdjecia(zdjecia.filter(z => z.id !== id))
   }
 
+  function dodajZdjecie(nowe: Omit<Photo, 'id' | 'favorite'>) {
+    const noweId = zdjecia.length > 0 ? Math.max(...zdjecia.map(z => z.id)) + 1 : 1
+    setZdjecia([...zdjecia, { ...nowe, id: noweId, favorite: false }])
+  }
+
   return (
     <>
       <Navbar />
@@ -76,7 +81,7 @@ function App() {
         <Gallery zdjecia={widoczne} onUsun={usunZdjecie} />
       </main>
       <Footer />
-      <AddPhotoModal />
+      <AddPhotoModal onDodaj={dodajZdjecie} />
       <FiltersOffcanvas aktywna={aktywnaKategoria} onWybierz={setAktywnaKategoria} />
     </>
   )
