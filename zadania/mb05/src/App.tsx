@@ -1,6 +1,7 @@
 import Navbar from './components/Navbar.tsx'
 import CategoryBar from './components/CategoryBar.tsx'
 import Gallery from './components/Gallery.tsx'
+import Footer from './components/Footer.tsx'
 import './App.css'
 
 function App() {
@@ -42,6 +43,7 @@ function App() {
         <CategoryBar />
         <Gallery />
       </main>
+      <Footer />
     </>
   )
 }
