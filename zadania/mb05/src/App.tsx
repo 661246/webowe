@@ -21,27 +21,6 @@ export interface Photo {
 
 function App() {
   const [zdjecia, setZdjecia] = useState<Photo[]>(photos)
-  const [aktywnaKategoria, setAktywnaKategoria] = useState<string>('wszystkie')
-
-  const widoczne =
-    aktywnaKategoria === 'wszystkie'
-      ? zdjecia
-      : zdjecia.filter(z => z.category === aktywnaKategoria)
-
-  function usunZdjecie(id: number) {
-    setZdjecia(zdjecia.filter(z => z.id !== id))
-  }
-
-  function dodajZdjecie(nowe: Omit<Photo, 'id' | 'favorite'>) {
-    const noweId = zdjecia.length > 0 ? Math.max(...zdjecia.map(z => z.id)) + 1 : 1
-    setZdjecia([...zdjecia, { ...nowe, id: noweId, favorite: false }])
-  }
-
-  function przelaczUlubione(id: number) {
-    setZdjecia(
-      zdjecia.map(z => (z.id === id ? { ...z, favorite: !z.favorite } : z))
-    )
-  }
 
   return (
     <>
@@ -78,24 +57,12 @@ function App() {
         </div>
       </header>
       <main className="container">
-        <CategoryBar aktywna={aktywnaKategoria} onWybierz={setAktywnaKategoria} />
-        <p className="text-body-secondary">
-          Wyświetlono {widoczne.length} z {zdjecia.length} zdjęć
-        </p>
-        {widoczne.length === 0 && (
-          <div className="alert alert-warning">
-            Nie znaleziono zdjęć w tej kategorii.
-          </div>
-        )}
-        <Gallery
-          zdjecia={widoczne}
-          onUsun={usunZdjecie}
-          onPrzelacz={przelaczUlubione}
-        />
+        <CategoryBar />
+        <Gallery zdjecia={zdjecia} />
       </main>
       <Footer />
-      <AddPhotoModal onDodaj={dodajZdjecie} />
-      <FiltersOffcanvas aktywna={aktywnaKategoria} onWybierz={setAktywnaKategoria} />
+      <AddPhotoModal />
+      <FiltersOffcanvas />
     </>
   )
 }
