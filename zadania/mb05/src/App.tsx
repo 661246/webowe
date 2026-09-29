@@ -2,6 +2,7 @@ import Navbar from './components/Navbar.tsx'
 import CategoryBar from './components/CategoryBar.tsx'
 import Gallery from './components/Gallery.tsx'
 import Footer from './components/Footer.tsx'
+import AddPhotoModal from './components/AddPhotoModal.tsx'
 import './App.css'
 
 function App() {
@@ -44,6 +45,7 @@ function App() {
         <Gallery />
       </main>
       <Footer />
+      <AddPhotoModal />
     </>
   )
 }
