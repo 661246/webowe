@@ -73,7 +73,7 @@ function App() {
       </main>
       <Footer />
       <AddPhotoModal />
-      <FiltersOffcanvas />
+      <FiltersOffcanvas aktywna={aktywnaKategoria} onWybierz={setAktywnaKategoria} />
     </>
   )
 }
