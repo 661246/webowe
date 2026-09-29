@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Modal } from 'bootstrap'
-import { Photo } from '../App.tsx'
+import type { Photo } from '../App.tsx'
 
 const PUSTY_FORMULARZ = {
   title: '',
