@@ -1,6 +1,7 @@
-import Navbar from "./components/Navbar.tsx";
-import CategoryBar from "./components/CategoryBar.tsx";
-import "./App.css";
+import Navbar from './components/Navbar.tsx'
+import CategoryBar from './components/CategoryBar.tsx'
+import Gallery from './components/Gallery.tsx'
+import './App.css'
 
 function App() {
   return (
@@ -11,15 +12,12 @@ function App() {
           <div className="col-12 col-lg-8">
             <h1 className="mb-2">Galeria zdjęć</h1>
             <p className="lead text-body-secondary mb-0">
-              Zdjęcia z wypraw w góry, nad morze i po mieście. Wybierz
-              kategorię, żeby zawęzić widok — albo powiększ zdjęcie, które Ci
-              się spodoba.
+              Zdjęcia z wypraw w góry, nad morze i po mieście. Wybierz kategorię,
+              żeby zawęzić widok — albo powiększ zdjęcie, które Ci się spodoba.
             </p>
           </div>
           <div className="col-12 col-lg-4">
-            <div
-              className="d-flex flex-wrap gap-2 justify-content-lg-end"
-            >
+            <div className="d-flex flex-wrap gap-2 justify-content-lg-end">
               <button
                 type="button"
                 className="btn btn-outline-secondary"
@@ -42,9 +40,10 @@ function App() {
       </header>
       <main className="container">
         <CategoryBar />
+        <Gallery />
       </main>
     </>
-  );
+  )
 }
 
-export default App;
+export default App
